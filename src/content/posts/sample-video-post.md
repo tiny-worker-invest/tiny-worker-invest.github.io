@@ -4,6 +4,8 @@ description: "Example of a post built from a YouTube video: the video is embedde
 pubDate: 2026-11-18
 tickers: [NVDA]
 tags: [earnings, video]
+strategy: [growth]
+keyword: "NVDA earnings"
 youtubeId: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 relatedVideos:
   - "https://youtu.be/jNQXAC9IVRw"

@@ -25,6 +25,11 @@ description: "구글 검색결과에 보일 1~2문장 요약 (170자 이내)"
 pubDate: 2026-11-22
 tickers: [NVDA]
 tags: [earnings, AI]
+strategy: [growth]                  # dividend / growth / 둘 다
+keyword: "NVDA Q3 2026 earnings"     # 노리는 영어 검색어 (화면엔 안 보임)
+faq:                                 # 선택: 자주 묻는 질문 → 구글 FAQ 결과
+  - q: "Is NVDA a buy after earnings?"
+    a: "한두 문장 답변"
 youtubeId: "https://youtu.be/..."   # 선택: 대표 영상, 글 맨 위에 표시 (주소 그대로 붙여넣기)
 relatedVideos:                       # 선택: 관련 영상 여러 개, 글 아래 "Related videos"에 표시
   - "https://www.youtube.com/watch?v=..."
@@ -50,7 +55,10 @@ npm run dev      # http://localhost:4321
 - Google Search Console에 사이트 등록 → `sitemap-index.xml` 제출
 - Bing Webmaster Tools도 등록 (가져오기 한 번이면 끝)
 
-## 번역 워크플로 (한국어 분석글 → 영어 글)
+## 번역 워크플로
+
+번역·SEO 세부 규칙은 [TRANSLATION_GUIDE.md](TRANSLATION_GUIDE.md)를 따릅니다.
+ (한국어 분석글 → 영어 글)
 1. 네이버 글 주소나 본문을 Claude에게 붙여넣고 "영어 글로 만들어줘"라고 요청합니다.
 2. Claude가 직역이 아니라 **미국 독자용으로 다듬은** 영어 글을 위 형식의 `.md` 파일로 만들어 줍니다.
    - 원화 표기·한국 증권사/세금 이야기 → 달러 기준, 일반 투자자 관점으로 정리

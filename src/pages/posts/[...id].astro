@@ -3,18 +3,31 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import YouTube from '../../components/YouTube.astro';
 import CTA from '../../components/CTA.astro';
+import PostCard from '../../components/PostCard.astro';
+import { STRATEGIES } from '../../strategies';
 import { SITE } from '../../site.config';
 import { getPosts, href, fmtDate, slugify, readingTime } from '../../lib';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
-  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+  return posts.map((post) => {
+    // Related = shares a ticker, strategy or tag (internal links help Google crawl and rank)
+    const score = (o: typeof post) =>
+      o.data.tickers.filter((t) => post.data.tickers.includes(t)).length * 3 +
+      o.data.strategy.filter((t) => post.data.strategy.includes(t)).length * 2 +
+      o.data.tags.filter((t) => post.data.tags.includes(t)).length;
+    const related = posts.filter((o) => o.id !== post.id).map((o) => [score(o), o] as const)
+      .filter(([s]) => s > 0).sort((a, b) => b[0] - a[0]).slice(0, 3).map(([, o]) => o);
+    return { params: { id: post.id }, props: { post, related } };
+  });
 }
-const { post } = Astro.props;
+const { post, related } = Astro.props;
 const { Content } = await render(post);
 const d = post.data;
 const image = d.youtubeId ? `https://i.ytimg.com/vi/${d.youtubeId}/maxresdefault.jpg` : undefined;
-const jsonLd = {
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+const primary = d.strategy[0] ? STRATEGIES[d.strategy[0]] : undefined;
+const article = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: d.title,
@@ -22,17 +35,37 @@ const jsonLd = {
   datePublished: d.pubDate.toISOString(),
   dateModified: (d.updatedDate ?? d.pubDate).toISOString(),
   author: { '@type': 'Person', name: SITE.author },
-  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+  mainEntityOfPage: url,
+  publisher: { '@type': 'Organization', name: SITE.title, logo: { '@type': 'ImageObject', url: new URL(href('favicon.svg'), Astro.site).toString() } },
+  ...(d.keyword && { keywords: [d.keyword, ...d.tickers, ...d.tags].join(', ') }),
   ...(image && { image }),
   ...(d.tickers.length && { about: d.tickers.map((t) => ({ '@type': 'Corporation', tickerSymbol: t })) }),
 };
+const crumbs = [{ name: SITE.title, item: SITE.url }];
+if (primary) crumbs.push({ name: primary.name, item: new URL(href(`${primary.slug}/`), Astro.site).toString() });
+crumbs.push({ name: d.title, item: url });
+const jsonLd: Record<string, unknown>[] = [
+  article,
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, ...c })) },
+];
+if (d.faq.length) jsonLd.push({ '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: d.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) });
+if (d.youtubeId) jsonLd.push({ '@context': 'https://schema.org', '@type': 'VideoObject', name: d.title, description: d.description,
+  thumbnailUrl: `https://i.ytimg.com/vi/${d.youtubeId}/hqdefault.jpg`, uploadDate: d.pubDate.toISOString(),
+  embedUrl: `https://www.youtube.com/embed/${d.youtubeId}`, contentUrl: `https://www.youtube.com/watch?v=${d.youtubeId}` });
 ---
 <Base title={d.title} description={d.description} image={image} type="article" jsonLd={jsonLd} alternateKo={d.originalUrl}>
   <article class="post">
     <header class="post-header">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href={href('/')}>Home</a><span>/</span>
+        {primary ? <a href={href(`${primary.slug}/`)}>{primary.name}</a> : <a href={href('posts/')}>Articles</a>}
+      </nav>
       <div class="meta">
+        {d.strategy.map((k) => <a class:list={['strategy-pill', k]} href={href(`${STRATEGIES[k].slug}/`)}>{STRATEGIES[k].emoji} {STRATEGIES[k].name}</a>)}
         {d.tickers.map((t) => <span class="ticker">${t}</span>)}
-        {d.tags.slice(0, 2).map((t) => <a class="kicker" href={href(`tags/${slugify(t)}/`)}>{t}</a>)}
+        {!d.strategy.length && d.tags.slice(0, 2).map((t) => <a class="kicker" href={href(`tags/${slugify(t)}/`)}>{t}</a>)}
       </div>
       <h1>{d.title}</h1>
       <p class="post-lead">{d.description}</p>
@@ -50,6 +83,12 @@ const jsonLd = {
     </header>
     {d.youtubeId && <YouTube id={d.youtubeId} title={d.title} />}
     <div class="prose"><Content /></div>
+    {d.faq.length > 0 && (
+      <section class="faq prose">
+        <h2>Frequently asked questions</h2>
+        {d.faq.map((f) => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+      </section>
+    )}
     {d.relatedVideos.length > 0 && (
       <section class="related-videos">
         <h2>Related videos</h2>
@@ -60,4 +99,10 @@ const jsonLd = {
     {d.originalUrl && <p class="original">Originally published in Korean: <a href={d.originalUrl} rel="noopener">read the original</a></p>}
   </article>
   <CTA />
+  {related.length > 0 && (
+    <section class="related">
+      <h2 class="section-title">Keep reading</h2>
+      <div class="grid">{related.map((p) => <PostCard post={p} />)}</div>
+    </section>
+  )}
 </Base>

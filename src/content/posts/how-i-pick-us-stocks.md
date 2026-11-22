@@ -4,6 +4,13 @@ description: "The simple five-step checklist I use before buying any US stock, f
 pubDate: 2026-11-20
 tickers: []
 tags: [investing basics, checklist]
+strategy: [dividend, growth]
+keyword: "how to pick US stocks"
+faq:
+  - q: "How do beginners pick US stocks?"
+    a: "Start with a short checklist: growing revenue, stable margins, a healthy balance sheet, a reasonable valuation, and a business you understand. Skip any stock that fails two or more."
+  - q: "Should I buy dividend stocks or growth stocks?"
+    a: "You don't have to choose. I hold dividend stocks for steady income and growth stocks for long-term upside, and size each based on my goals."
 originalUrl: "https://blog.naver.com/your-id/000000000"
 ---
 

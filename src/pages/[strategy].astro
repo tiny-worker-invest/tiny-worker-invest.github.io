@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import CTA from '../components/CTA.astro';
+import { SITE } from '../site.config';
+import { STRATEGIES, type StrategyKey } from '../strategies';
+import { getPosts, href } from '../lib';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return (Object.keys(STRATEGIES) as StrategyKey[]).map((key) => ({
+    params: { strategy: STRATEGIES[key].slug },
+    props: { key, posts: posts.filter((p) => p.data.strategy.includes(key)) },
+  }));
+}
+const { key, posts } = Astro.props as { key: StrategyKey; posts: any[] };
+const s = STRATEGIES[key];
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'CollectionPage', name: s.title, description: s.description, url },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: SITE.title, item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: s.name, item: url },
+  ] },
+];
+---
+<Base title={s.title} description={s.description} jsonLd={jsonLd}>
+  <div class="wide-break">
+    <p class="kicker">{s.emoji} {s.name}</p>
+    <h1 class="page-title">{s.title}</h1>
+    <div class="strategy-intro">{s.intro.map((t) => <p>{t}</p>)}</div>
+    {posts.length
+      ? <div class="grid">{posts.map((p) => <PostCard post={p} />)}</div>
+      : <p class="page-lead">First articles coming soon.</p>}
+    <p class="more"><a href={href('posts/')}>Browse all articles →</a></p>
+    <CTA />
+  </div>
+</Base>

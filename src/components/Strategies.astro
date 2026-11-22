@@ -1,0 +1,22 @@
+---
+import { STRATEGIES, type StrategyKey } from '../strategies';
+import { href } from '../lib';
+const { counts = {} } = Astro.props as { counts?: Record<string, number> };
+---
+<section class="strategies">
+  <h2 class="section-title">Two engines, one portfolio</h2>
+  <p class="page-lead">I invest in two kinds of US stocks — and write about both.</p>
+  <div class="strategy-grid">
+    {(Object.keys(STRATEGIES) as StrategyKey[]).map((k) => {
+      const s = STRATEGIES[k];
+      return (
+        <a class:list={['strategy-card', k]} href={href(`${s.slug}/`)}>
+          <span class="strategy-emoji" aria-hidden="true">{s.emoji}</span>
+          <h3>{s.name}</h3>
+          <p>{s.short}</p>
+          <span class="strategy-link">{counts[k] ? `${counts[k]} article${counts[k] > 1 ? 's' : ''}` : 'Explore'} →</span>
+        </a>
+      );
+    })}
+  </div>
+</section>

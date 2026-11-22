@@ -2,10 +2,12 @@
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
 import CTA from '../components/CTA.astro';
+import Strategies from '../components/Strategies.astro';
 import { SITE } from '../site.config';
 import { getPosts, href, slugify } from '../lib';
 const all = await getPosts();
 const [featured, ...rest] = all;
+const counts = { dividend: all.filter((p) => p.data.strategy.includes('dividend')).length, growth: all.filter((p) => p.data.strategy.includes('growth')).length };
 const topics = [...new Set(all.flatMap((p) => p.data.tags))].slice(0, 8);
 const jsonLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.title, url: SITE.url, description: SITE.tagline };
 ---
@@ -14,7 +16,7 @@ const jsonLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: SIT
     <div class="wrap wide hero-inner">
       <p class="eyebrow"><span class="dot"></span> No Wall Street. No hype. Just homework after 5.</p>
       <h1>US stocks, explained by <em>an ordinary investor</em> with a day job.</h1>
-      <p class="lead">I'm a regular office worker who researches US stocks after hours. Plain-English breakdowns of companies, earnings and ETFs — for regular people investing for the long run.</p>
+      <p class="lead">I'm a regular office worker who researches US stocks after hours. Plain-English breakdowns of companies, earnings and ETFs — I invest with two engines: <strong>dividend stocks</strong> for steady income and <strong>growth stocks</strong> for long-term upside.</p>
       <div class="hero-cta">
         <a class="btn" href={href('posts/')}>Read the analysis</a>
         <a class="btn ghost-light" href={SITE.youtubeChannel} rel="noopener">▶ Watch on YouTube</a>
@@ -25,9 +27,10 @@ const jsonLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: SIT
     </div>
   </section>
   <div class="wide-break">
+    <Strategies counts={counts} />
     {featured && (
       <>
-        <h2 class="section-title">Latest analysis</h2>
+        <h2 class="section-title spaced">Latest analysis</h2>
         <PostCard post={featured} featured />
       </>
     )}

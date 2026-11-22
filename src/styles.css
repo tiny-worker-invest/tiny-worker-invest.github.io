@@ -158,3 +158,30 @@ main.wrap { padding-block: 48px 72px; }
 .footer-top nav a { color: #c6d0e0; text-decoration: none; }
 .footer-top nav a:hover { color: #fff; }
 .disclaimer { font-size: .82rem; margin-top: 20px; }
+
+/* strategies */
+.section-title.spaced { margin-top: 48px; }
+.strategy-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.strategy-card { position: relative; display: block; padding: 24px 24px 22px; border-radius: 18px; text-decoration: none;
+  color: #fff; overflow: hidden; box-shadow: var(--shadow); transition: transform .15s ease; }
+.strategy-card:hover { transform: translateY(-3px); }
+.strategy-card.dividend { background: radial-gradient(400px 200px at 100% 0%, rgb(245 158 11 / .35), transparent 60%), linear-gradient(135deg, #0b1b34, #13294d); }
+.strategy-card.growth { background: radial-gradient(400px 200px at 100% 0%, rgb(52 211 153 / .35), transparent 60%), linear-gradient(135deg, #0b1b34, #0f3a3a); }
+.strategy-emoji { font-size: 1.8rem; }
+.strategy-card h3 { margin: 10px 0 6px; font-size: 1.35rem; }
+.strategy-card p { margin: 0 0 16px; color: #c6d0e0; }
+.strategy-link { font-weight: 600; color: var(--accent-2); }
+.strategy-card.dividend .strategy-link { color: #fcd34d; }
+.strategy-intro { max-width: 720px; color: var(--muted); font-size: 1.08rem; margin-bottom: 28px; }
+.strategy-pill { font-size: .78rem; font-weight: 700; padding: 2px 10px; border-radius: 999px; text-decoration: none; }
+.strategy-pill.dividend { background: rgb(245 158 11 / .15); color: #b45309; }
+.strategy-pill.growth { background: var(--accent-soft); color: var(--accent); }
+@media (prefers-color-scheme: dark) { .strategy-pill.dividend { color: #fcd34d; } }
+.crumbs { display: flex; gap: 8px; font-size: .85rem; color: var(--muted); margin-bottom: 10px; }
+.crumbs a { color: var(--muted); text-decoration: none; } .crumbs a:hover { color: var(--accent); }
+.faq { margin-top: 40px; }
+.faq details { border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 12px 18px; margin-bottom: 10px; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq details p { margin: 10px 0 2px; color: var(--muted); }
+.related { margin-top: 56px; }
+@media (max-width: 720px) { .site-header .nav-wide { display: none; } }
