@@ -15,7 +15,7 @@ export const SITE = {
     repo: 'tiny-worker-invest/tiny-worker-invest.github.io',
     repoId: 'R_kgDOV3IFWA',
     category: 'Announcements',
-    categoryId: '',
+    categoryId: 'DIC_kwDOV3IFWM4DLuNh',
   },
   googleAnalytics: 'G-81BM5N1VCC',      // Google Analytics 4 measurement ID
   googleVerification: 'ftQeScQCSKBwABFliz58aX8wQHfQQLobnILrwEsCJoQ',                // Google Search Console 'HTML tag' content value                           // '@handle' for X/Twitter cards (optional)
