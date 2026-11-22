@@ -9,7 +9,10 @@ const all = await getPosts();
 const [featured, ...rest] = all;
 const counts = { dividend: all.filter((p) => p.data.strategy.includes('dividend')).length, growth: all.filter((p) => p.data.strategy.includes('growth')).length };
 const topics = [...new Set(all.flatMap((p) => p.data.tags))].slice(0, 8);
-const jsonLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.title, url: SITE.url, description: SITE.tagline };
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.title, url: SITE.url, description: SITE.tagline },
+  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.title, url: SITE.url, logo: new URL('favicon.svg', SITE.url).toString(), sameAs: [SITE.youtubeChannel] },
+];
 ---
 <Base jsonLd={jsonLd}>
   <section class="hero" slot="hero">

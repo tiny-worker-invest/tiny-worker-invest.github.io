@@ -7,7 +7,7 @@ import { SITE } from '../site.config';
     <p>New US stock analysis every week — on the blog and on YouTube.</p>
   </div>
   <div class="cta-links">
-    <a class="btn" href={SITE.youtubeChannel} rel="noopener">Subscribe on YouTube</a>
+    <a class="btn" href={`${SITE.youtubeChannel}?sub_confirmation=1`} rel="noopener">Subscribe on YouTube</a>
     {SITE.newsletterUrl && <a class="btn ghost" href={SITE.newsletterUrl} rel="noopener">Join the newsletter</a>}
   </div>
 </aside>
