@@ -18,6 +18,7 @@ faq:
     a: "Yes. It is part of the S&P 500 Dividend Aristocrats, the group of S&P 500 companies that have grown their dividends for at least 25 years in a row."
   - q: "Does Realty Income invest in data centers?"
     a: "Yes. In Q3 2026 it started a data center venture with Cloud Capital, its second after a 2024 project with Digital Realty. Data centers make up about 1% of total revenue so far."
+holdings: "I own shares of Realty Income (O). It is currently the largest position in my portfolio."
 ---
 
 ## Quick answer
