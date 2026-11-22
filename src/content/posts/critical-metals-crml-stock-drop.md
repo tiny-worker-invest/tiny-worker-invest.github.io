@@ -19,6 +19,11 @@ faq:
     a: "No. Only about 15% is covered by a signed, binding offtake contract. The rest is in non-binding agreements, which are not legally enforceable."
 ---
 
+<figure>
+  <img src="/images/posts/critical-metals-crml-stock-drop/critical-metals-no-money-to-build-the-mine.webp" alt="Critical Metals infographic: no money to build the mine, with about $260 million of cash on hand versus a maximum construction cost of $1 billion" width="1200" height="1500" />
+  <figcaption>Critical Metals has about $260 million in cash against a mine that could cost up to $1 billion to build.</figcaption>
+</figure>
+
 ## Quick answer
 
 Critical Metals (CRML) stock has fallen for three reasons: **(1)** its auditor doubts the company can keep operating for another year, **(2)** up to about **100 million shares** sold to private investors can hit the market whenever the price bounces, and **(3)** the merger with European Lithium grew the share count by about **32%**. All three come back to one problem: **the company doesn't yet have the money to build its Tanbreez rare earth mine in Greenland.**
@@ -26,7 +31,7 @@ Critical Metals (CRML) stock has fallen for three reasons: **(1)** its auditor d
 *Figures as of November 2026, based on company filings.*
 
 <figure>
-  <img src="/images/posts/critical-metals-crml-stock-drop/three-reasons-crml-stock-fell.webp" alt="Three reasons Critical Metals (CRML) stock fell: auditor's going-concern doubt, up to about 100 million shares that could be sold, and share count rising from about 147 million to 194 million (+32%) after the merger" width="1600" height="900" loading="lazy" />
+  <img src="/images/posts/critical-metals-crml-stock-drop/three-reasons-crml-stock-fell.webp" alt="3 reasons Critical Metals (CRML) is falling: auditor raises going-concern doubts, up to about 100 million shares that could be sold, and share count rising from about 147 million to 194 million (+32%) after the merger" width="1600" height="840" loading="lazy" />
   <figcaption>The three reasons behind CRML's slide, summarized. Source: Critical Metals filings, November 2026.</figcaption>
 </figure>
 
@@ -71,8 +76,8 @@ My first thought was that this might be good news, since the merger brought in c
 No. The company's own estimate for building the mine is **at least $400 million, and up to $1 billion**. Even the low end is more than the cash on hand.
 
 <figure>
-  <img src="/images/posts/critical-metals-crml-stock-drop/cash-vs-mine-construction-cost.webp" alt="Bar chart comparing Critical Metals' cash on hand of $264.5 million with the Tanbreez mine construction cost estimate of $400 million (low) to $1 billion (high)" width="1600" height="840" loading="lazy" />
-  <figcaption>Cash on hand covers less than the low-end construction estimate. Sources: Critical Metals Form 6-K (Nov 13, 2026) for cash; company conference call (Jan 22, 2026) for construction cost.</figcaption>
+  <img src="/images/posts/critical-metals-crml-stock-drop/cash-vs-mine-construction-cost.webp" alt="Bar chart comparing Critical Metals' cash on hand of about $260 million with the Tanbreez mine construction cost estimate of $400 million (low) to $1 billion (high)" width="1600" height="840" loading="lazy" />
+  <figcaption>Cash on hand (about $264.5 million, rounded to $260M in the chart) covers less than the low-end construction estimate. Sources: Critical Metals Form 6-K (Nov 13, 2026) for cash; company conference call (Jan 22, 2026) for construction cost.</figcaption>
 </figure>
 
 And that cash isn't all going into construction. The company has said it will spend this money on studies and permitting, and look for construction financing separately next year. That almost certainly means **more share issuance** — which brings us right back to Reason 2.
