@@ -23,6 +23,7 @@ const posts = defineCollection({
     youtubeId: z.string().transform(ytId).optional(),        // main video, embedded at the top (ID or full URL)
     relatedVideos: z.array(z.string().transform(ytId)).default([]), // more videos, shown under the article
     originalUrl: z.string().url().optional(),   // link to the Korean Naver post / video
+    holdings: z.string().optional(),           // disclosure of the author's position, e.g. 'I own CRML shares (average cost about $16).'
     draft: z.boolean().default(false),
   }),
 });

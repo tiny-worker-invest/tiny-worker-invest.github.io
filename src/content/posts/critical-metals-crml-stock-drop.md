@@ -17,6 +17,7 @@ faq:
     a: "The company has put the construction cost at roughly $400 million at the low end and up to $1 billion at the high end (January 22, 2026 conference call)."
   - q: "Has Critical Metals sold 100% of its Tanbreez output?"
     a: "No. Only about 15% is covered by a signed, binding offtake contract. The rest is in non-binding agreements, which are not legally enforceable."
+holdings: "I own shares of Critical Metals (CRML), bought at an average price of about $16."
 ---
 
 ## Quick answer

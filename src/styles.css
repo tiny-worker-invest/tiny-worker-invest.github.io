@@ -194,3 +194,17 @@ main.wrap { padding-block: 48px 72px; }
 /* Comments (Giscus) */
 .comments { margin-top: 48px; }
 .comments .giscus { margin-top: 12px; }
+
+/* disclosure + author */
+.post-disclosure { margin-top: 32px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--surface); color: var(--muted); font-size: .9rem; line-height: 1.6; }
+.post-disclosure p { margin: 0; } .post-disclosure p + p { margin-top: 8px; }
+.post-disclosure strong { color: var(--fg); }
+.author-box { display: flex; gap: 16px; align-items: flex-start; margin-top: 20px; padding: 20px; border-radius: 14px;
+  background: var(--accent-soft); }
+.author-box .avatar { width: 52px; height: 52px; font-size: 1.3rem; }
+.author-box strong { font-family: var(--display); font-size: 1.05rem; }
+.author-box p { margin: 6px 0 0; font-size: .95rem; line-height: 1.6; }
+.author-box .author-links { font-weight: 600; }
+.author-box .author-links a { text-decoration: none; }
+.site-footer .disclaimer a { color: #c6d0e0; }

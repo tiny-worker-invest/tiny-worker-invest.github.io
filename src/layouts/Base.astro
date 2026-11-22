@@ -85,12 +85,13 @@ const ldList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
             <a href={SITE.youtubeChannel} rel="noopener">YouTube</a>
             <a href={href('contact/')}>Contact</a>
             <a href={href('privacy/')}>Privacy Policy</a>
+            <a href={href('disclaimer/')}>Disclaimer</a>
             <a href={href('rss.xml')}>RSS</a>
           </nav>
         </div>
         <p class="disclaimer">
           Content is for informational and educational purposes only and is not investment advice.
-          Do your own research before making any investment decision.
+          Do your own research before making any investment decision. <a href={href('disclaimer/')}>Read the full disclaimer</a>.
         </p>
         <p>© {new Date().getFullYear()} {SITE.author}</p>
       </div>
