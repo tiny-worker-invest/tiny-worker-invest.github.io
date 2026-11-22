@@ -6,7 +6,7 @@ export const SITE = {
   tagline: 'US stock analysis for people with day jobs.',
   author: 'The 9to5 Investor',
   language: 'en',
-  youtubeChannel: 'https://www.youtube.com/@Tiny_woker_invest',
+  youtubeChannel: 'https://www.youtube.com/@tiny_woker_invest',
   naverBlog: 'https://blog.naver.com/your-id',
   newsletterUrl: '',                     // e.g. a Substack / Beehiiv / ConvertKit signup link
   twitter: '',
