@@ -3,7 +3,7 @@ export const SITE = {
   url: 'https://tiny-worker-invest.github.io',           // your final domain (or https://<github-id>.github.io/<repo>)
   base: '/',                             // '/<repo>/' only if you use a GitHub Pages project URL
   title: 'The 9to5 Investor',       // English brand name
-  tagline: 'US stock analysis from a Korean office worker who invests after 5.',
+  tagline: 'US stock analysis for people with day jobs.',
   author: 'The 9to5 Investor',
   language: 'en',
   youtubeChannel: 'https://www.youtube.com/@your-channel',

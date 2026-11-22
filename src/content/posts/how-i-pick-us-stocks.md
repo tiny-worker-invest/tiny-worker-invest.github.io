@@ -1,5 +1,5 @@
 ---
-title: "How a Korean Office Worker Picks US Stocks: My 5-Step Checklist"
+title: "How a Regular Office Worker Picks US Stocks: My 5-Step Checklist"
 description: "The simple five-step checklist I use before buying any US stock, from revenue growth to valuation, written for busy part-time investors."
 pubDate: 2026-11-20
 tickers: []
