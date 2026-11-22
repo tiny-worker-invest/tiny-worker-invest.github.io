@@ -6,7 +6,10 @@ const posts = await getPosts();
 const tags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 ---
 <Base title="All articles" description="Every US stock analysis, earnings recap and ETF guide on the site.">
-  <h1>All articles</h1>
+  <div class="wide-break">
+  <h1 class="page-title">All articles</h1>
+  <p class="page-lead">Company deep dives, earnings recaps and ETF guides.</p>
   {tags.length > 0 && <p class="tags">{tags.map((t) => <a href={href(`tags/${slugify(t)}/`)}>#{t}</a>)}</p>}
   <div class="grid">{posts.map((p) => <PostCard post={p} />)}</div>
+  </div>
 </Base>

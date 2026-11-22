@@ -1,6 +1,7 @@
 ---
 import { SITE } from '../site.config';
 import { href } from '../lib';
+import Logo from '../components/Logo.astro';
 import '../styles.css';
 
 interface Props {
@@ -28,6 +29,10 @@ const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
     <link rel="alternate" type="application/rss+xml" title={SITE.title} href={href('rss.xml')} />
     <link rel="sitemap" href={href('sitemap-index.xml')} />
     <link rel="icon" href={href('favicon.svg')} type="image/svg+xml" />
+    <meta name="theme-color" content="#0b1b34" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
     <meta property="og:site_name" content={SITE.title} />
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title ?? SITE.title} />
@@ -41,22 +46,32 @@ const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="brand" href={href('/')}>{SITE.title}</a>
+        <a class="brand" href={href('/')}><Logo /><span>The <b>9to5</b> Investor</span></a>
         <nav>
           <a href={href('posts/')}>Articles</a>
           <a href={href('about/')}>About</a>
-          <a href={SITE.youtubeChannel} rel="noopener">YouTube</a>
+          <a class="nav-yt" href={SITE.youtubeChannel} rel="noopener">YouTube</a>
         </nav>
       </div>
     </header>
+    <slot name="hero" />
     <main class="wrap"><slot /></main>
     <footer class="site-footer">
       <div class="wrap">
+        <div class="footer-top">
+          <a class="brand" href={href('/')}><Logo /><span>The <b>9to5</b> Investor</span></a>
+          <nav>
+            <a href={href('posts/')}>Articles</a>
+            <a href={href('about/')}>About</a>
+            <a href={SITE.youtubeChannel} rel="noopener">YouTube</a>
+            <a href={href('rss.xml')}>RSS</a>
+          </nav>
+        </div>
         <p class="disclaimer">
           Content is for informational and educational purposes only and is not investment advice.
           Do your own research before making any investment decision.
         </p>
-        <p>© {new Date().getFullYear()} {SITE.author} · <a href={href('rss.xml')}>RSS</a></p>
+        <p>© {new Date().getFullYear()} {SITE.author}</p>
       </div>
     </footer>
   </body>

@@ -3,17 +3,41 @@ import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
 import CTA from '../components/CTA.astro';
 import { SITE } from '../site.config';
-import { getPosts, href } from '../lib';
-const posts = (await getPosts()).slice(0, 6);
+import { getPosts, href, slugify } from '../lib';
+const all = await getPosts();
+const [featured, ...rest] = all;
+const topics = [...new Set(all.flatMap((p) => p.data.tags))].slice(0, 8);
 const jsonLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.title, url: SITE.url, description: SITE.tagline };
 ---
 <Base jsonLd={jsonLd}>
-  <section class="hero">
-    <h1>{SITE.tagline}</h1>
-    <p>Plain-English breakdowns of US stocks, earnings and ETFs — written for long-term individual investors.</p>
+  <section class="hero" slot="hero">
+    <div class="wrap wide hero-inner">
+      <p class="eyebrow"><span class="dot"></span> Clocking out at 5. Researching till late.</p>
+      <h1>US stock analysis from a <em>Korean office worker</em> who invests after 5.</h1>
+      <p class="lead">Plain-English breakdowns of US stocks, earnings and ETFs — written for long-term individual investors who also have a day job.</p>
+      <div class="hero-cta">
+        <a class="btn" href={href('posts/')}>Read the analysis</a>
+        <a class="btn ghost-light" href={SITE.youtubeChannel} rel="noopener">▶ Watch on YouTube</a>
+      </div>
+      {topics.length > 0 && (
+        <div class="topics">{topics.map((t) => <a href={href(`tags/${slugify(t)}/`)}>#{t}</a>)}</div>
+      )}
+    </div>
   </section>
-  <h2>Latest articles</h2>
-  <div class="grid">{posts.map((p) => <PostCard post={p} />)}</div>
-  <p><a href={href('posts/')}>All articles →</a></p>
-  <CTA />
+  <div class="wide-break">
+    {featured && (
+      <>
+        <h2 class="section-title">Latest analysis</h2>
+        <PostCard post={featured} featured />
+      </>
+    )}
+    {rest.length > 0 && (
+      <>
+        <h2 class="section-title">More articles</h2>
+        <div class="grid">{rest.slice(0, 6).map((p) => <PostCard post={p} />)}</div>
+      </>
+    )}
+    <p class="more"><a href={href('posts/')}>Browse all articles →</a></p>
+    <CTA />
+  </div>
 </Base>

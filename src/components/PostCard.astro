@@ -1,15 +1,28 @@
 ---
-import { href, fmtDate } from '../lib';
-const { post } = Astro.props;
-const { title, description, pubDate, tickers } = post.data;
+import { href, fmtDate, readingTime, thumbOf } from '../lib';
+const { post, featured = false } = Astro.props;
+const { title, description, pubDate, tickers, tags } = post.data;
+const thumb = thumbOf(post.data);
+const label = tickers.length ? tickers.slice(0, 2).map((t: string) => '$' + t).join(' · ') : (tags[0] ?? 'Insight');
+const hue = [...post.id].reduce((a: number, c: string) => a + c.charCodeAt(0), 0) % 4;
 ---
-<article class="card">
+<article class:list={['card', { featured }]}>
   <a href={href(`posts/${post.id}/`)}>
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <div class="meta">
-      <time datetime={pubDate.toISOString()}>{fmtDate(pubDate)}</time>
-      {tickers.map((t: string) => <span class="ticker">${t}</span>)}
+    <div class:list={['thumb', `g${hue}`]}>
+      {thumb ? <img src={thumb} alt="" loading="lazy" onerror="this.remove()" /> : <span class="thumb-label">{label}</span>}
+      {thumb && <span class="play" aria-hidden="true">▶</span>}
+    </div>
+    <div class="card-body">
+      <div class="meta">
+        {tickers.map((t: string) => <span class="ticker">${t}</span>)}
+        {!tickers.length && tags[0] && <span class="kicker">{tags[0]}</span>}
+      </div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <div class="meta small">
+        <time datetime={pubDate.toISOString()}>{fmtDate(pubDate)}</time>
+        <span>·</span><span>{readingTime(post.body)} min read</span>
+      </div>
     </div>
   </a>
 </article>
