@@ -87,6 +87,7 @@ main.wrap { padding-block: 48px 72px; }
 .thumb-label { color: #fff; font-family: var(--display); font-weight: 800; font-size: 1.6rem; letter-spacing: -.02em;
   text-transform: capitalize; opacity: .95; padding: 0 16px; text-align: center; }
 .thumb-label small { display: block; font-family: var(--display); font-size: .8rem; font-weight: 600; opacity: .75; margin-top: 6px; letter-spacing: .04em; }
+.thumb img.cover { object-fit: contain; background: #fff; }
 .play { position: absolute; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
   background: rgb(225 29 72 / .92); color: #fff; font-size: 18px; padding-left: 3px; }
 .card-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
@@ -122,6 +123,9 @@ main.wrap { padding-block: 48px 72px; }
 .prose h2 { font-size: 1.55rem; margin: 2.4rem 0 .8rem; }
 .prose h3 { font-size: 1.2rem; margin: 2rem 0 .6rem; }
 .prose img { max-width: 100%; height: auto; border-radius: 12px; }
+.prose figure { margin: 1.8rem 0; }
+.prose figure img { display: block; width: 100%; border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow); }
+.prose figcaption { margin-top: 8px; font-size: .86rem; color: var(--muted); text-align: center; line-height: 1.5; }
 .prose table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; font-size: .95rem; }
 .prose th { background: var(--surface); }
 .prose th, .prose td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }

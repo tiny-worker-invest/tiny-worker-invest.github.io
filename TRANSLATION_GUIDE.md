@@ -43,3 +43,9 @@ Link to 1–3 other posts on the site in the body (e.g. "I compared SCHD with VY
 ## 6. After publishing
 - Search Console → URL Inspection → "Request indexing" for the new URL (speeds up the first crawl).
 - Share the URL in the YouTube video description and pinned comment — that link also helps ranking.
+
+## 7. Images (IR slides, charts)
+- Save to `public/images/posts/<post-slug>/<descriptive-name>.webp` (crop out Korean captions/UI, convert to WebP).
+- Insert where the text discusses it, using a `<figure>` with English `alt` text (describe what the chart shows, include the company name and key numbers — Google Images reads this) and a `<figcaption>` that ends with "Source: <Company> <quarter> investor presentation."
+- If a slide's numbers differ from the text (e.g. yield at a different date), say so in the caption.
+- Set the best image as `cover:` when the post has no video — it becomes the card thumbnail and share preview.

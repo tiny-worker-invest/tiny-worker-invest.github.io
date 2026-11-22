@@ -4,6 +4,7 @@ description: "Realty Income's Q3 2026 earnings reviewed: stock price, 5.5% divid
 pubDate: 2026-11-15
 tickers: [O]
 company: "Realty Income"
+cover: "/images/posts/realty-income-q3-2026-earnings/dividend-track-record.webp"
 tags: [REITs, monthly dividends, earnings]
 strategy: [dividend]
 keyword: "Realty Income Q3 2026 earnings"
@@ -56,6 +57,11 @@ It has also declared **676 consecutive monthly dividends**. Through more than 50
 | Consecutive monthly dividends declared | 676 |
 | Dividend Aristocrat | Yes |
 | Current yield | 5.52% |
+
+<figure>
+  <img src="/images/posts/realty-income-q3-2026-earnings/dividend-track-record.webp" alt="Realty Income annualized dividend per share from 1994 to 2026, rising to $3.258 with a 4.1% compound annual growth rate, 676 monthly dividends and 116 consecutive quarterly increases" width="918" height="475" loading="lazy" />
+  <figcaption>Realty Income's annualized dividend per share has grown at a 4.1% compound annual rate since 1994, reaching $3.258. (The 6.0% yield shown is based on the September 30, 2026 share price.) Source: Realty Income Q3 2026 investor presentation.</figcaption>
+</figure>
 
 ## Q3 2026 earnings: strong cash generation (AFFO)
 

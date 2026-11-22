@@ -15,5 +15,5 @@ export const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-'
 
 export const readingTime = (body = '') => Math.max(1, Math.round(body.split(/\s+/).filter(Boolean).length / 230));
 
-export const thumbOf = (data: { youtubeId?: string }) =>
-  data.youtubeId ? `https://i.ytimg.com/vi/${data.youtubeId}/hqdefault.jpg` : undefined;
+export const thumbOf = (data: { youtubeId?: string; cover?: string }) =>
+  data.youtubeId ? `https://i.ytimg.com/vi/${data.youtubeId}/hqdefault.jpg` : data.cover ? href(data.cover) : undefined;
