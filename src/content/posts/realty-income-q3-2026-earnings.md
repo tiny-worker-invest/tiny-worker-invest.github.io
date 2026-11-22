@@ -5,6 +5,7 @@ pubDate: 2026-11-15
 tickers: [O]
 company: "Realty Income"
 cover: "/images/posts/realty-income-q3-2026-earnings/dividend-track-record.webp"
+youtubeId: "https://youtu.be/EZVCuHsYnSs"
 tags: [REITs, monthly dividends, earnings]
 strategy: [dividend]
 keyword: "Realty Income Q3 2026 earnings"
@@ -59,7 +60,7 @@ It has also declared **676 consecutive monthly dividends**. Through more than 50
 | Current yield | 5.52% |
 
 <figure>
-  <img src="/images/posts/realty-income-q3-2026-earnings/dividend-track-record.webp" alt="Realty Income annualized dividend per share from 1994 to 2026, rising to $3.258 with a 4.1% compound annual growth rate, 676 monthly dividends and 116 consecutive quarterly increases" width="918" height="475" loading="lazy" />
+  <img src="/images/posts/realty-income-q3-2026-earnings/dividend-track-record.webp" alt="Realty Income annualized dividend per share from 1994 to 2026, rising to $3.258 with a 4.1% compound annual growth rate, 676 monthly dividends and 116 consecutive quarterly increases" width="1600" height="900" loading="lazy" />
   <figcaption>Realty Income's annualized dividend per share has grown at a 4.1% compound annual rate since 1994, reaching $3.258. (The 6.0% yield shown is based on the September 30, 2026 share price.) Source: Realty Income Q3 2026 investor presentation.</figcaption>
 </figure>
 
@@ -75,16 +76,31 @@ In Q3, Realty Income's AFFO **rose meaningfully from the previous quarter** and 
 
 There's another reason I like Realty Income. It's no longer just a landlord for convenience stores and supermarkets. It has been diversifying into **data centers** and **gaming** (casinos and resorts).
 
+<figure>
+  <img src="/images/posts/realty-income-q3-2026-earnings/portfolio-diversification.webp" alt="Realty Income portfolio by property type: 77% retail, 17% industrial, 3% gaming, 2% other, 1% data center; by geography: 79.6% United States, 15.1% United Kingdom, 5.3% continental Europe" width="1600" height="900" loading="lazy" />
+  <figcaption>Retail is still 77% of rent, but industrial, gaming and data centers are growing. Source: Realty Income Q3 2026 investor presentation.</figcaption>
+</figure>
+
 In Q3, it also launched a data center venture with **Cloud Capital** — its second official data center deal, after the 2024 project with **Digital Realty**. It's already meaningful enough to show up in the numbers: about **1% of total revenue** now comes from data centers.
 
-On top of that, its **joint venture with KKR** is operating in Europe, in Italy and Spain — two of Realty Income's main markets there.
+<figure>
+  <img src="/images/posts/realty-income-q3-2026-earnings/cloud-capital-data-center-jv.webp" alt="Realty Income and Cloud Capital programmatic hyperscale data center joint venture: over $6 billion transaction value, 45% Realty Income stake, under 400MW, 100% leased on 15 to 20 year triple-net leases in Northern Virginia" width="1600" height="900" loading="lazy" />
+  <figcaption>The Cloud Capital joint venture targets hyperscale data centers leased to investment-grade tenants. Source: Realty Income Q3 2026 investor presentation.</figcaption>
+</figure>
+
+On top of that, its **joint venture with KKR** is operating in Europe, with properties in Spain, Ireland, Poland and the Netherlands. (In the US, it runs a similar partnership with Apollo.)
+
+<figure>
+  <img src="/images/posts/realty-income-q3-2026-earnings/apollo-kkr-joint-ventures.webp" alt="Comparison of Realty Income's Apollo US joint venture and KKR European joint venture: equity proceeds, ownership, properties, markets and lease terms" width="1600" height="900" loading="lazy" />
+  <figcaption>Realty Income keeps 51% of both joint ventures, bringing in partner capital without issuing new shares. Source: Realty Income Q3 2026 investor presentation.</figcaption>
+</figure>
 
 ## Key takeaways
 
 - **Price & yield:** ~$58.82 per share, 5.52% dividend yield.
 - **Dividend streak:** 116 consecutive quarterly raises (29 years), 676 consecutive monthly dividends, Dividend Aristocrat.
 - **Cash flow:** AFFO up versus last quarter and last year — the dividend looks well supported.
-- **Growth angles:** data centers (~1% of revenue), gaming properties, and a KKR joint venture in Europe.
+- **Growth angles:** data centers (~1% of revenue), gaming properties, and joint ventures with KKR (Europe) and Apollo (US).
 - **My view:** not a stock for fast gains, but one of the most reliable monthly income payers you can own.
 
 *This article is for informational purposes only and is not investment advice.*
