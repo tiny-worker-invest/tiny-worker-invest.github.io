@@ -19,11 +19,6 @@ faq:
     a: "No. Only about 15% is covered by a signed, binding offtake contract. The rest is in non-binding agreements, which are not legally enforceable."
 ---
 
-<figure>
-  <img src="/images/posts/critical-metals-crml-stock-drop/critical-metals-no-money-to-build-the-mine.webp" alt="Critical Metals infographic: no money to build the mine, with about $260 million of cash on hand versus a maximum construction cost of $1 billion" width="1200" height="1500" />
-  <figcaption>Critical Metals has about $260 million in cash against a mine that could cost up to $1 billion to build.</figcaption>
-</figure>
-
 ## Quick answer
 
 Critical Metals (CRML) stock has fallen for three reasons: **(1)** its auditor doubts the company can keep operating for another year, **(2)** up to about **100 million shares** sold to private investors can hit the market whenever the price bounces, and **(3)** the merger with European Lithium grew the share count by about **32%**. All three come back to one problem: **the company doesn't yet have the money to build its Tanbreez rare earth mine in Greenland.**
