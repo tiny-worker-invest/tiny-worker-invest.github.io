@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site.config';
+import { href } from '../lib';
+---
+<Base title="Disclaimer" description={`Investment disclaimer and disclosure policy for ${SITE.title}.`}>
+  <article class="post prose">
+    <h1>Disclaimer</h1>
+    <p class="page-lead">Last updated: November 22, 2026</p>
+
+    <h2>Not investment advice</h2>
+    <p>All content on {SITE.title}, including articles, images, charts and linked videos, is for informational and
+      educational purposes only. Nothing here is investment, financial, tax or legal advice, or a recommendation to buy,
+      sell or hold any security. I am an individual investor, not a licensed financial advisor, broker or analyst.</p>
+
+    <h2>Do your own research</h2>
+    <p>Investing in stocks involves risk, including the possible loss of your entire investment. Past performance does not
+      guarantee future results. Before making any investment decision, do your own research and consider speaking with a
+      qualified professional who knows your personal situation.</p>
+
+    <h2>Accuracy of information</h2>
+    <p>I base my analysis on company filings, investor presentations and other public sources, and I try to note the date
+      for every figure. Even so, information can be incomplete, become outdated or contain errors. I don't guarantee the
+      accuracy or completeness of anything on this site. If you spot a mistake, please <a href={href('contact/')}>let me know</a>
+      and I'll correct it.</p>
+
+    <h2>My positions</h2>
+    <p>I often write about stocks I own. When I hold a position in a stock discussed in an article, I say so in that
+      article. My positions can change at any time without notice, and owning a stock does not mean you should.</p>
+
+    <h2>Compensation and advertising</h2>
+    <p>I am not paid by any company I write about. This site may display ads (for example, from Google AdSense) and may
+      in the future include affiliate links, which would be clearly labeled. Advertisers have no influence over what I write.</p>
+
+    <h2>Opinions</h2>
+    <p>Opinions expressed here are my own and do not represent the views of my employer or any other organization.</p>
+
+    <h2>Limitation of liability</h2>
+    <p>By using this site you agree that {SITE.title} and its author are not liable for any losses or damages arising from
+      your use of, or reliance on, the information provided here.</p>
+
+    <p>Questions? See the <a href={href('contact/')}>Contact page</a>. See also our <a href={href('privacy/')}>Privacy Policy</a>.</p>
+  </article>
+</Base>

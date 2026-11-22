@@ -1,0 +1,14 @@
+---
+import { SITE } from '../site.config';
+import { href } from '../lib';
+---
+<aside class="author-box" aria-label="About the author">
+  <span class="avatar" aria-hidden="true">9</span>
+  <div>
+    <strong>Written by {SITE.author}</strong>
+    <p>An ordinary office worker who researches US stocks after hours. No finance degree, no Wall Street job:
+      just homework on dividend stocks for income and growth stocks for long-term upside, explained in plain English.
+      I write about companies I own or follow closely, and I say so when I hold a stock.</p>
+    <p class="author-links"><a href={href('about/')}>About me</a> · <a href={SITE.youtubeChannel} rel="noopener">YouTube</a> · <a href={href('contact/')}>Contact</a></p>
+  </div>
+</aside>

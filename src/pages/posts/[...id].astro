@@ -3,6 +3,7 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import YouTube from '../../components/YouTube.astro';
 import CTA from '../../components/CTA.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
 import PostCard from '../../components/PostCard.astro';
 import Comments from '../../components/Comments.astro';
 import { STRATEGIES } from '../../strategies';
@@ -97,6 +98,11 @@ if (d.youtubeId) jsonLd.push({ '@context': 'https://schema.org', '@type': 'Video
       </section>
     )}
     {d.tags.length > 0 && <p class="tags">{d.tags.map((t) => <a href={href(`tags/${slugify(t)}/`)}>#{t}</a>)}</p>}
+    <aside class="post-disclosure" aria-label="Disclosure">
+      {d.holdings && <p><strong>Disclosure:</strong> {d.holdings}</p>}
+      <p><strong>Not investment advice.</strong> This article is for informational and educational purposes only. I'm an individual investor, not a licensed financial advisor. Figures are as of the date noted and may change. Do your own research before making any investment decision. <a href={href('disclaimer/')}>Full disclaimer</a></p>
+    </aside>
+    <AuthorBox />
     {d.originalUrl && <p class="original">Originally published in Korean: <a href={d.originalUrl} rel="noopener">read the original</a></p>}
   </article>
   <CTA />
