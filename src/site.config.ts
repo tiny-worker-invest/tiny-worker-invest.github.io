@@ -9,7 +9,7 @@ export const SITE = {
   youtubeChannel: 'https://www.youtube.com/@tiny_woker_invest',
   naverBlog: 'https://blog.naver.com/your-id',
   newsletterUrl: '',                     // e.g. a Substack / Beehiiv / ConvertKit signup link
-  contactEmail: '',                     // public contact email shown on /contact/ (leave empty to hide)
+  contactEmail: 'tinyworker.investment@gmail.com',                     // public contact email shown on /contact/ (leave empty to hide)
   twitter: '',
   // Giscus comments (GitHub Discussions). Comments stay hidden until categoryId is filled in.
   giscus: {
