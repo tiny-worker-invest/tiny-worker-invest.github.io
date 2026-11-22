@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts, href, slugify } from '../../lib';
+const posts = await getPosts();
+const tags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
+---
+<Base title="All articles" description="Every US stock analysis, earnings recap and ETF guide on the site.">
+  <h1>All articles</h1>
+  {tags.length > 0 && <p class="tags">{tags.map((t) => <a href={href(`tags/${slugify(t)}/`)}>#{t}</a>)}</p>}
+  <div class="grid">{posts.map((p) => <PostCard post={p} />)}</div>
+</Base>

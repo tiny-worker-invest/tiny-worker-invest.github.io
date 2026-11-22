@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import CTA from '../components/CTA.astro';
+import { SITE } from '../site.config';
+import { getPosts, href } from '../lib';
+const posts = (await getPosts()).slice(0, 6);
+const jsonLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.title, url: SITE.url, description: SITE.tagline };
+---
+<Base jsonLd={jsonLd}>
+  <section class="hero">
+    <h1>{SITE.tagline}</h1>
+    <p>Plain-English breakdowns of US stocks, earnings and ETFs — written for long-term individual investors.</p>
+  </section>
+  <h2>Latest articles</h2>
+  <div class="grid">{posts.map((p) => <PostCard post={p} />)}</div>
+  <p><a href={href('posts/')}>All articles →</a></p>
+  <CTA />
+</Base>

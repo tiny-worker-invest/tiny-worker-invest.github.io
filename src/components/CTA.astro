@@ -1,0 +1,11 @@
+---
+import { SITE } from '../site.config';
+---
+<aside class="cta">
+  <strong>Enjoyed this?</strong>
+  <p>Get new US stock breakdowns as they come out.</p>
+  <div class="cta-links">
+    <a class="btn" href={SITE.youtubeChannel} rel="noopener">Subscribe on YouTube</a>
+    {SITE.newsletterUrl && <a class="btn ghost" href={SITE.newsletterUrl} rel="noopener">Join the newsletter</a>}
+  </div>
+</aside>

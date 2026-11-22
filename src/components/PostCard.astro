@@ -1,0 +1,15 @@
+---
+import { href, fmtDate } from '../lib';
+const { post } = Astro.props;
+const { title, description, pubDate, tickers } = post.data;
+---
+<article class="card">
+  <a href={href(`posts/${post.id}/`)}>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <div class="meta">
+      <time datetime={pubDate.toISOString()}>{fmtDate(pubDate)}</time>
+      {tickers.map((t: string) => <span class="ticker">${t}</span>)}
+    </div>
+  </a>
+</article>

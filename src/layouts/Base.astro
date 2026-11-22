@@ -1,0 +1,63 @@
+---
+import { SITE } from '../site.config';
+import { href } from '../lib';
+import '../styles.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  jsonLd?: Record<string, unknown>;
+  alternateKo?: string;
+}
+const { title, description = SITE.tagline, image, type = 'website', jsonLd, alternateKo } = Astro.props;
+const fullTitle = title ? `${title} | ${SITE.title}` : `${SITE.title} — ${SITE.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
+---
+<!doctype html>
+<html lang={SITE.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternateKo && <link rel="alternate" hreflang="ko" href={alternateKo} />}
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href={href('rss.xml')} />
+    <link rel="sitemap" href={href('sitemap-index.xml')} />
+    <link rel="icon" href={href('favicon.svg')} type="image/svg+xml" />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title ?? SITE.title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    {SITE.twitter && <meta name="twitter:site" content={SITE.twitter} />}
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={href('/')}>{SITE.title}</a>
+        <nav>
+          <a href={href('posts/')}>Articles</a>
+          <a href={href('about/')}>About</a>
+          <a href={SITE.youtubeChannel} rel="noopener">YouTube</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap"><slot /></main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="disclaimer">
+          Content is for informational and educational purposes only and is not investment advice.
+          Do your own research before making any investment decision.
+        </p>
+        <p>© {new Date().getFullYear()} {SITE.author} · <a href={href('rss.xml')}>RSS</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

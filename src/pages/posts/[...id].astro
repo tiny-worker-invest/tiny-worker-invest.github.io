@@ -1,0 +1,52 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import YouTube from '../../components/YouTube.astro';
+import CTA from '../../components/CTA.astro';
+import { SITE } from '../../site.config';
+import { getPosts, href, fmtDate, slugify } from '../../lib';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const image = d.youtubeId ? `https://i.ytimg.com/vi/${d.youtubeId}/maxresdefault.jpg` : undefined;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: d.title,
+  description: d.description,
+  datePublished: d.pubDate.toISOString(),
+  dateModified: (d.updatedDate ?? d.pubDate).toISOString(),
+  author: { '@type': 'Person', name: SITE.author },
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+  ...(image && { image }),
+  ...(d.tickers.length && { about: d.tickers.map((t) => ({ '@type': 'Corporation', tickerSymbol: t })) }),
+};
+---
+<Base title={d.title} description={d.description} image={image} type="article" jsonLd={jsonLd} alternateKo={d.originalUrl}>
+  <article class="post">
+    <header>
+      <h1>{d.title}</h1>
+      <div class="meta">
+        <time datetime={d.pubDate.toISOString()}>{fmtDate(d.pubDate)}</time>
+        {d.updatedDate && <span>· Updated {fmtDate(d.updatedDate)}</span>}
+        {d.tickers.map((t) => <span class="ticker">${t}</span>)}
+      </div>
+    </header>
+    {d.youtubeId && <YouTube id={d.youtubeId} title={d.title} />}
+    <div class="prose"><Content /></div>
+    {d.relatedVideos.length > 0 && (
+      <section class="related-videos">
+        <h2>Related videos</h2>
+        {d.relatedVideos.map((v) => <YouTube id={v} title={`${d.title} — related video`} />)}
+      </section>
+    )}
+    {d.tags.length > 0 && <p class="tags">{d.tags.map((t) => <a href={href(`tags/${slugify(t)}/`)}>#{t}</a>)}</p>}
+    {d.originalUrl && <p class="original">Originally published in Korean: <a href={d.originalUrl} rel="noopener">read the original</a></p>}
+  </article>
+  <CTA />
+</Base>
