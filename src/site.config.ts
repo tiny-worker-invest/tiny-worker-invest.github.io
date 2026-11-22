@@ -10,5 +10,5 @@ export const SITE = {
   naverBlog: 'https://blog.naver.com/your-id',
   newsletterUrl: '',                     // e.g. a Substack / Beehiiv / ConvertKit signup link
   twitter: '',
-  googleVerification: '',                // Google Search Console 'HTML tag' content value                           // '@handle' for X/Twitter cards (optional)
+  googleVerification: 'ftQeScQCSKBwABFliz58aX8wQHfQQLobnILrwEsCJoQ',                // Google Search Console 'HTML tag' content value                           // '@handle' for X/Twitter cards (optional)
 };
