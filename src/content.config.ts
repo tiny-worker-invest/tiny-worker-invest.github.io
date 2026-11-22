@@ -15,6 +15,7 @@ const posts = defineCollection({
     updatedDate: z.coerce.date().optional(),
     tickers: z.array(z.string()).default([]),   // e.g. ['NVDA', 'TSLA']
     tags: z.array(z.string()).default([]),
+    company: z.string().optional(),            // company name shown on the card when there is no video
     strategy: z.array(z.enum(['dividend', 'growth'])).default([]), // which investing style the post belongs to
     keyword: z.string().optional(),            // main English search phrase you want to rank for (not shown)
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]), // shown at the end + FAQ rich result

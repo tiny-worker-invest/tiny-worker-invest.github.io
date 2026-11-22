@@ -1,7 +1,7 @@
 ---
 import { href, fmtDate, readingTime, thumbOf } from '../lib';
 const { post, featured = false } = Astro.props;
-const { title, description, pubDate, tickers, tags } = post.data;
+const { title, description, pubDate, tickers, tags, company } = post.data;
 const thumb = thumbOf(post.data);
 const label = tickers.length ? tickers.slice(0, 2).map((t: string) => '$' + t).join(' · ') : (tags[0] ?? 'Insight');
 const hue = [...post.id].reduce((a: number, c: string) => a + c.charCodeAt(0), 0) % 4;
@@ -9,7 +9,9 @@ const hue = [...post.id].reduce((a: number, c: string) => a + c.charCodeAt(0), 0
 <article class:list={['card', { featured }]}>
   <a href={href(`posts/${post.id}/`)}>
     <div class:list={['thumb', `g${hue}`]}>
-      {thumb ? <img src={thumb} alt="" loading="lazy" onerror="this.remove()" /> : <span class="thumb-label">{label}</span>}
+      {thumb ? <img src={thumb} alt="" loading="lazy" onerror="this.remove()" /> : (
+        <span class="thumb-label">{company ?? label}{company && tickers[0] && <small>Ticker: {tickers[0]}</small>}</span>
+      )}
       {thumb && <span class="play" aria-hidden="true">▶</span>}
     </div>
     <div class="card-body">
