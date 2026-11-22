@@ -4,7 +4,7 @@ description: "Why CRML stock keeps falling: a going-concern warning, ~100M share
 pubDate: 2026-11-22
 tickers: [CRML]
 company: "Critical Metals"
-cover: "/images/posts/critical-metals-crml-stock-drop/cover.webp"
+cover: "/images/posts/critical-metals-crml-stock-drop/thumbnail.webp"
 tags: [rare earths, mining]
 strategy: [growth]
 keyword: "why is CRML stock down"
