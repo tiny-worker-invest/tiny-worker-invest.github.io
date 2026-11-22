@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site.config';
+import { href } from '../lib';
+const email = SITE.contactEmail;
+---
+<Base title="Contact" description={`Get in touch with ${SITE.title}.`}>
+  <article class="post prose">
+    <h1>Contact</h1>
+    <p>Thanks for reading. I'm happy to hear from you, whether it's a question about an article, a correction,
+      a topic you'd like me to cover, or a collaboration idea.</p>
+    {email ? (
+      <>
+        <h2>Email</h2>
+        <p><a href={`mailto:${email}`}>{email}</a></p>
+        <p>I read every message and usually reply within a few days. I have a day job, so please be patient.</p>
+      </>
+    ) : null}
+    <h2>YouTube</h2>
+    <p>You can also leave a comment on any video on <a href={SITE.youtubeChannel} rel="noopener">my YouTube channel</a>.</p>
+    <h2>Please note</h2>
+    <ul>
+      <li>I can't give personal investment advice or tell you whether to buy or sell a specific stock.</li>
+      <li>Found an error in an article? Tell me which post and what's wrong, and I'll fix it.</li>
+    </ul>
+    <p>See also: <a href={href('about/')}>About</a> · <a href={href('privacy/')}>Privacy Policy</a></p>
+  </article>
+</Base>

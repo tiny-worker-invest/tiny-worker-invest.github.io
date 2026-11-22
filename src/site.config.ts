@@ -9,6 +9,7 @@ export const SITE = {
   youtubeChannel: 'https://www.youtube.com/@tiny_woker_invest',
   naverBlog: 'https://blog.naver.com/your-id',
   newsletterUrl: '',                     // e.g. a Substack / Beehiiv / ConvertKit signup link
+  contactEmail: '',                     // public contact email shown on /contact/ (leave empty to hide)
   twitter: '',
   googleAnalytics: 'G-81BM5N1VCC',      // Google Analytics 4 measurement ID
   googleVerification: 'ftQeScQCSKBwABFliz58aX8wQHfQQLobnILrwEsCJoQ',                // Google Search Console 'HTML tag' content value                           // '@handle' for X/Twitter cards (optional)
