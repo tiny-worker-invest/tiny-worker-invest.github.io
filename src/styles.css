@@ -190,3 +190,7 @@ main.wrap { padding-block: 48px 72px; }
 .faq details p { margin: 10px 0 2px; color: var(--muted); }
 .related { margin-top: 56px; }
 @media (max-width: 720px) { .site-header .nav-wide { display: none; } }
+
+/* Comments (Giscus) */
+.comments { margin-top: 48px; }
+.comments .giscus { margin-top: 12px; }

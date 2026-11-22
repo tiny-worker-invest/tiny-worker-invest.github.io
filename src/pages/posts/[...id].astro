@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import YouTube from '../../components/YouTube.astro';
 import CTA from '../../components/CTA.astro';
 import PostCard from '../../components/PostCard.astro';
+import Comments from '../../components/Comments.astro';
 import { STRATEGIES } from '../../strategies';
 import { SITE } from '../../site.config';
 import { getPosts, href, fmtDate, slugify, readingTime } from '../../lib';
@@ -99,6 +100,7 @@ if (d.youtubeId) jsonLd.push({ '@context': 'https://schema.org', '@type': 'Video
     {d.originalUrl && <p class="original">Originally published in Korean: <a href={d.originalUrl} rel="noopener">read the original</a></p>}
   </article>
   <CTA />
+  <Comments />
   {related.length > 0 && (
     <section class="related">
       <h2 class="section-title">Keep reading</h2>
